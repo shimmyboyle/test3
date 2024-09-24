@@ -7,10 +7,11 @@
 body, html {
     height: 100%;
     font-family: Arial, sans-serif;
+    background-color: #0a0a1a; /* Navy blue background behind the video */
     color: white;
-    overflow: hidden;
+    overflow: hidden; /* Prevents scrollbars */
+    position: relative; /* Ensures that video layers above background */
 }
-
 
 .top-bar {
     position: fixed;
@@ -18,7 +19,7 @@ body, html {
     width: 100%;
     background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent black */
     padding: 10px;
-    z-index: 1000;
+    z-index: 1000; /* Ensure top-bar stays above the video */
 }
 
 .logo {
@@ -34,8 +35,17 @@ body, html {
     left: 0;
     width: 100%;
     height: 100%;
+    z-index: 1; /* Ensure the video is on top of the navy background */
     overflow: hidden;
-    z-index: -1;
+}
+
+iframe, video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensure the video covers the background */
 }
 
 .overlay-text {
@@ -46,6 +56,7 @@ body, html {
     font-size: 104px; /* Larger font size */
     font-weight: 900;
     line-height: 1; /* Smaller line spacing */
+    z-index: 1000; /* Ensure text stays above the video */
 }
 
 .overlay-text p {
@@ -58,8 +69,10 @@ footer {
     width: 100%;
     text-align: center;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.7); /* Slightly transparent black */
     font-size: 14px;
     color: white;
+    z-index: 1000; /* Ensure footer stays above the video */
 }
+
 
